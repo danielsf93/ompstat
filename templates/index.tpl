@@ -7,7 +7,7 @@
     .tablink {
         background-color: #4CAF50; /* Cor de fundo */
         color: white; /* Cor do texto */
-        padding: 10px 15px; /* Espaçamento interno */
+        padding: 15px 160px; /* Espaçamento interno */
         border: none; /* Sem borda */
         cursor: pointer; /* Cursor ao passar */
     }
@@ -25,19 +25,107 @@
     }
 </style>
 
-<div class="page">
+{* recuperando a informação do arquivo principal *}
+{$meuTeste2|escape}
     <h1>Estatísticas</h1>
 
     <!-- Abas -->
     <div class="tabs">
-        <button class="tablink" onclick="openTab('downloads')">Downloads</button>
-        <button class="tablink" onclick="openTab('acessos')">Acessos</button>
+        <button class="tablink" onclick="openTab('downloads')"><b>Downloads</b></button>
+        <button class="tablink" onclick="openTab('acessos')"><b>Acessos</b></button>
     </div>
 
     <!-- Conteúdo das Abas -->
     <div id="downloads" class="tabcontent">
         <!-- Conteúdo da aba Downloads -->
-        <p>Conteúdo da aba Downloads...</p>
+        <b>Selecione o Ano:</b><br><br>
+
+
+
+        
+            
+                <button id="button2010">2010</button>
+                <div id="div2010" style="display:none;">
+                    <style>
+                        #button2010 {
+                            font-weight: bold;
+                            background-color: #ececec;
+                            color: #076fb1;
+                            border-radius: 5px;
+                            border: 100;
+                            padding: 5px 76px;
+                            
+                        }
+                    </style>
+                    <div class="referencia 2010">
+                        ola
+
+
+
+
+
+
+
+
+
+                        
+                    </div>
+                    <script>
+                        const button2010 = document.getElementById("button2010");
+                        const div2010 = document.getElementById("div2010");
+                        button2010.addEventListener("click", function () {
+                            if (div2010.style.display === "none") {
+                                div2010.style.display = "block";
+                                button2010.innerHTML = "2010";
+                            } else {
+                                div2010.style.display = "none";
+                                button2010.innerHTML = "2010";
+                            }
+                        });
+                    </script>
+                </div><br><br>
+
+           <button id="button2011">2011</button>
+                <div id="div2011" style="display:none;">
+                    <style>
+                        #button2011 {
+                            font-weight: bold;
+                            background-color: #ececec;
+                            color: #076fb1;
+                            border-radius: 5px;
+                            border: 100;
+                            padding: 5px 76px;
+                            
+                        }
+                    </style>
+                    <div class="referencia 2011">
+                        ola
+                    </div>
+                    <script>
+                        const button2011 = document.getElementById("button2011");
+                        const div2011 = document.getElementById("div2011");
+                        button2011.addEventListener("click", function () {
+                            if (div2011.style.display === "none") {
+                                div2011.style.display = "block";
+                                button2011.innerHTML = "2011";
+                            } else {
+                                div2011.style.display = "none";
+                                button2011.innerHTML = "2011";
+                            }
+                        });
+                    </script>
+                </div><br><br>
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
     <div id="acessos" class="tabcontent">

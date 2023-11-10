@@ -18,6 +18,10 @@ class ompstat extends GenericPlugin {
 		}
 		return false;
 	}
+
+	//variavel sem função para enviar ao tpl via handler
+	public $meuTeste2 = "OI GENTEEEE!!!";
+
 	public function getDisplayName() {
 		return 'Omp Stat';
 	}
