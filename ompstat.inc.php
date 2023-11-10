@@ -7,8 +7,13 @@ class ompstat extends GenericPlugin {
 		if ($success && $this->getEnabled()) {
 			HookRegistry::register('LoadHandler', array($this, 'setPageHandler'));
 		}
+
+		// Inclua o arquivo aqui
+		include_once($this->getPluginPath() . '/meusobjetos/extra.php');
+
 		return $success;
-  }
+	}
+
 	public function setPageHandler($hookName, $params) {
 		$page = $params[0];
 		if ($page === 'ompstat') {
@@ -18,20 +23,14 @@ class ompstat extends GenericPlugin {
 		}
 		return false;
 	}
-
-	//variavel sem função para enviar ao tpl via handler
-	public $meuTeste2 = "OI GENTEEEE!!!";
-
+	
+	//variavel sem funcao para passar ao handler e recuperar no tpl
+	public $meuTeste1 = "varivável do arquivo principal";
+	
 	public function getDisplayName() {
 		return 'Omp Stat';
 	}
 
-	/**
-	 * Provide a description for this plugin
-	 *
-	 * The description will appear in the Plugin Gallery where editors can
-	 * install, enable and disable plugins.
-	 */
 	public function getDescription() {
 		return 'Omp stat';
 	}

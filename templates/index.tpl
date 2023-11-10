@@ -33,15 +33,15 @@
         <button class="tablink" onclick="openTab('downloads')"><b>Downloads</b></button>
         <button class="tablink" onclick="openTab('acessos')"><b>Acessos</b></button>
     </div>
-{$meuTeste2|escape}
+
 
     <!-- Conteúdo das Abas -->
     <div id="downloads" class="tabcontent">
         <!-- Conteúdo da aba Downloads -->
         <b>Selecione o Ano:</b><br><br>
 
-
-
+{* recuperando a informação via handler*}
+{$meuTeste2|escape}<br>
         
             
                 <button id="button2010">2010</button>
@@ -58,7 +58,7 @@
                         }
                     </style>
                     <div class="referencia 2010">
-                        ola
+                        {$meuTeste1|escape}<br>
 
 
 
