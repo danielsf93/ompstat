@@ -25,8 +25,7 @@
     }
 </style>
 
-{* recuperando a informação do arquivo principal *}
-{$meuTeste2|escape}
+<div class="page">
     <h1>Estatísticas</h1>
 
     <!-- Abas -->
@@ -34,6 +33,7 @@
         <button class="tablink" onclick="openTab('downloads')"><b>Downloads</b></button>
         <button class="tablink" onclick="openTab('acessos')"><b>Acessos</b></button>
     </div>
+{$meuTeste2|escape}
 
     <!-- Conteúdo das Abas -->
     <div id="downloads" class="tabcontent">
