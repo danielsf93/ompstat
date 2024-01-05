@@ -1,15 +1,14 @@
 <?php
 //plugins/generic/ompstat/ompstat.inc.php
 import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.pkp.plugins.importexport.users.PKPUserImportExportPlugin');
+import('plugins.generic.ompstat.ompstatDAO');
 class ompstat extends GenericPlugin {
 	public function register($category, $path, $mainContextId = null) {
 		$success = parent::register($category, $path, $mainContextId);
 		if ($success && $this->getEnabled()) {
 			HookRegistry::register('LoadHandler', array($this, 'setPageHandler'));
 		}
-
-		// Inclua o arquivo aqui
-		include_once($this->getPluginPath() . '/meusobjetos/extra.php');
 
 		return $success;
 	}
@@ -24,6 +23,27 @@ class ompstat extends GenericPlugin {
 		return false;
 	}
 	
+
+	public function obterDados() {
+        //depende diretamente de ompstatdao
+        $ompstatDAO = new ompstatDAO();
+    
+        try {
+            $dados = $ompstatDAO->obterDados();
+    
+            if (count($dados) > 0) {
+                return $dados;
+            } else {
+                return "Nenhum resultado encontrado";
+            }
+        } catch (Exception $e) {
+            return "Erro: " . $e->getMessage();
+        }
+    }
+
+
+
+
 	//variavel sem funcao para passar ao handler e recuperar no tpl
 	public $meuTeste1 = "varivável do arquivo principal";
 	

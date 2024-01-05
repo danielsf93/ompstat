@@ -1,18 +1,28 @@
 <?php
 //plugins/generic/ompstat/ompstatHandler.inc.php
 
-    
 import('classes.handler.Handler');
+import('lib.pkp.pages.index.PKPIndexHandler');
+
+
 class ompstatHandler extends Handler {
-	public function index($args, $request) {
-		$plugin = PluginRegistry::getPlugin('generic', 'ompstat');
+  public function index($args, $request) {
+    $plugin = PluginRegistry::getPlugin('generic', 'ompstat');
     $templateMgr = TemplateManager::getManager($request);
-    //resgatando variavel do arquivo principal e enviando ao tpl - no caso está em outro php com outra classe
-    $templateMgr->assign('meuTeste2', MeusObjetos::$meuTeste2);
+    $route = $request->getRequestedPage();
 
-    //resgate variavel sem funcao do arquivo principal
-    $templateMgr->assign('meuTeste1', $plugin->meuTeste1);
+    if ($route === 'ompstat') {
+        // Atribua a variável $meuTeste ao TemplateManager
+        //$templateMgr->assign('meuTeste', $plugin->meuTeste);
+        //resgatando a funcao do arquivo principal e enviando ao arquivo tpl
+        $templateMgr->assign('obterDados', $plugin->obterDados());
+        return $templateMgr->display($plugin->getTemplateResource('index.tpl'));
+    }
 
-    return $templateMgr->display($plugin->getTemplateResource('index.tpl'));
-  }
+    $router = $request->getRouter();
+    $router->handle404();
+
+    return false;
+}
+
 }
