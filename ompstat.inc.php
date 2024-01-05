@@ -28,10 +28,10 @@ class ompstat extends GenericPlugin {
 	public $meuTeste1 = "varivável do arquivo principal";
 	
 	public function getDisplayName() {
-		return 'Omp Stat';
+		return 'Estatísticas do Portal';
 	}
 
 	public function getDescription() {
-		return 'Omp stat';
+		return 'Pagina estática para demonstrar as estatisticas gerais do portal OMP - /ompstat';
 	}
 }
