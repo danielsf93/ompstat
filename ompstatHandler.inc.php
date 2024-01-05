@@ -13,9 +13,10 @@ class ompstatHandler extends Handler {
 
     if ($route === 'ompstat') {
         // Atribua a variável $meuTeste ao TemplateManager
-        //$templateMgr->assign('meuTeste', $plugin->meuTeste);
+        $templateMgr->assign('meuTeste', $plugin->meuTeste);
         //resgatando a funcao do arquivo principal e enviando ao arquivo tpl
         $templateMgr->assign('obterDados', $plugin->obterDados());
+        $templateMgr->assign('obterLivros', $plugin->obterLivros());
         return $templateMgr->display($plugin->getTemplateResource('index.tpl'));
     }
 

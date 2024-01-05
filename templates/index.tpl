@@ -33,7 +33,15 @@
 						<p>Usuários Registrados:</p>
 					</h3>
 				</header>
+<hr>
+	<p>TESTE: {$meuTeste}</p><br>
+	{$obterLivros|escape}
 
+{foreach from=$obterLivros item=valor}
+    <a href="{url page="copyrightSearch" router=$smarty.const.ROUTE_PAGE}/?query={$valor}"target="_blank">{$valor}</a><br><br>
+  
+{/foreach}
+<hr>
 				
 
 			</div>
