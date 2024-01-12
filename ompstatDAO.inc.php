@@ -84,7 +84,22 @@ class ompstatDAO extends DAO {
     }
 
 
+    public function totalLivros() {
+        try {
+            $pdo = new PDO("mysql:host={$this->databaseHost};dbname={$this->databaseName}", $this->databaseUsername, $this->databasePassword);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // Conta o número de artigos publicados.
+            $query = "SELECT COUNT(*) as total FROM publications WHERE status = 3"; 
+    // ou $query = "SELECT COUNT(*) as total FROM submissions WHERE status = 3";
+            $stmt = $pdo->query($query);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $totalLivros = $result['total'];
 
+            return $totalLivros;
+        } catch (PDOException $e) {
+            return "Erro ao conectar ao banco de dados: " . $e->getMessage();
+        }
+    }
 
 
 
