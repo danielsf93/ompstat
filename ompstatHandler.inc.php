@@ -4,26 +4,30 @@
 import('classes.handler.Handler');
 import('lib.pkp.pages.index.PKPIndexHandler');
 
-
 class ompstatHandler extends Handler {
   public function index($args, $request) {
-    $plugin = PluginRegistry::getPlugin('generic', 'ompstat');
-    $templateMgr = TemplateManager::getManager($request);
-    $route = $request->getRequestedPage();
+      $plugin = PluginRegistry::getPlugin('generic', 'ompstat');
+      $templateMgr = TemplateManager::getManager($request);
+      $route = $request->getRequestedPage();
 
-    if ($route === 'ompstat') {
-        // Atribua a variável $meuTeste ao TemplateManager
-        $templateMgr->assign('meuTeste', $plugin->meuTeste);
-        //resgatando a funcao do arquivo principal e enviando ao arquivo tpl
-        $templateMgr->assign('obterDados', $plugin->obterDados());
-        $templateMgr->assign('obterLivros', $plugin->obterLivros());
-        return $templateMgr->display($plugin->getTemplateResource('index.tpl'));
-    }
+      if ($route === 'ompstat') {
+          // Obtenha a quantidade de livros publicados
+          $ompstatDAO = new ompstatDAO();
+          $livrosPublicados = $ompstatDAO->getLivrosPublicados();
 
-    $router = $request->getRouter();
-    $router->handle404();
+          // Atribua a variável $livrosPublicados ao TemplateManager
+          $templateMgr->assign('livrosPublicados', $livrosPublicados);
 
-    return false;
-}
+          // Atribua a variável $meuTeste ao TemplateManager
+          $templateMgr->assign('meuTeste', $plugin->meuTeste);
+
+          return $templateMgr->display($plugin->getTemplateResource('index.tpl'));
+      }
+
+      $router = $request->getRouter();
+      $router->handle404();
+
+      return false;
+  }
 
 }
