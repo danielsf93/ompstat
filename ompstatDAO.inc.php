@@ -59,6 +59,20 @@ class ompstatDAO extends DAO {
         return 0; // Retorna 0 se não houver resultados
     }
 
+    public function gettotalUsuarios() {
+        $result = $this->retrieve(
+            'SELECT COUNT(*) as total FROM users'
+        );
+        foreach ($result as $row) {
+            return $row->total;
+        }
+        return 0; // Retorna 0 se não houver resultados
+    }
+
+
+
+
+
 
 
 

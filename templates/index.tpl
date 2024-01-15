@@ -36,10 +36,28 @@
                     <p>Categorias Publicadas: {$totalCategorias}</p>
                 </h3>
             </header>
-            <hr>
-            <p>TESTE: {$meuTeste}</p>
-            <hr>
+            </div>
+            <header class="row">
+            <h3 class="col-md-6">
+                <p>Usuários Registrados: {$totalUsuarios}</p>
+            </h3>
+        </header>
+
+
+<hr>
+        <div class="container2">
+        <header class="row">
+        <h1 class="col-md-6">
+            <p>Estatisticas Por Ano:</p>
+        </h1>
+    </header>
+
         </div>
+
+
+        <hr>
+        <p>TESTE: {$meuTeste}</p>
+        <hr>
     </section>
 
 {include file="frontend/components/footer.tpl"}
