@@ -19,4 +19,27 @@ class ompstatDAO extends DAO {
 
         return 0; // Retorna 0 se não houver resultados
     }
+
+    public function gettotalAcessos() {
+        $result = $this->retrieve(
+            'SELECT SUM(metric) as total FROM metrics WHERE assoc_type IN (256, 1048585)'
+        );
+
+        foreach ($result as $row) {
+            return $row->total;
+        }
+
+        return 0; // Retorna 0 se não houver resultados
+    }
+
+
+
+
+
+
+
+
+
+
+
 }

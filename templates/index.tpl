@@ -16,6 +16,26 @@
                     <p>Livros Publicados: {$livrosPublicados}</p>
                 </h3>
             </header>
+            <header class="row">
+                <h3 class="col-md-6">
+                    <p>Total de Acessos: {$totalAcessos}</p>
+                </h3>
+            </header>
+            <header class="row">
+                <h3 class="col-md-6">
+                    <p>Total de Downloads: {$totalDownloads}</p>
+                </h3>
+            </header>
+            <header class="row">
+                <h3 class="col-md-6">
+                    <p>Séries Publicadas: {$seriesPublicadas}</p>
+                </h3>
+            </header>
+            <header class="row">
+                <h3 class="col-md-6">
+                    <p>Categorias Publicadas: {$totalCategorias}</p>
+                </h3>
+            </header>
             <hr>
             <p>TESTE: {$meuTeste}</p>
             <hr>

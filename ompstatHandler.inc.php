@@ -11,13 +11,15 @@ class ompstatHandler extends Handler {
       $route = $request->getRequestedPage();
 
       if ($route === 'ompstat') {
-          // Obtenha a quantidade de livros publicados
           $ompstatDAO = new ompstatDAO();
+          // Obtenha a quantidade de livros publicados
           $livrosPublicados = $ompstatDAO->getLivrosPublicados();
-
-          // Atribua a variável $livrosPublicados ao TemplateManager
           $templateMgr->assign('livrosPublicados', $livrosPublicados);
 
+         // Obtenha a quantidade de livros publicados
+         $totalAcessos = $ompstatDAO->gettotalAcessos();
+         $templateMgr->assign('totalAcessos', $totalAcessos);
+         
           // Atribua a variável $meuTeste ao TemplateManager
           $templateMgr->assign('meuTeste', $plugin->meuTeste);
 
