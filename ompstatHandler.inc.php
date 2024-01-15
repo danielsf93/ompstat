@@ -12,16 +12,29 @@ class ompstatHandler extends Handler {
 
       if ($route === 'ompstat') {
           $ompstatDAO = new ompstatDAO();
+        
           // Obtenha a quantidade de livros publicados
-          $livrosPublicados = $ompstatDAO->getLivrosPublicados();
-          $templateMgr->assign('livrosPublicados', $livrosPublicados);
+        $livrosPublicados = $ompstatDAO->getLivrosPublicados();
+        $templateMgr->assign('livrosPublicados', $livrosPublicados);
 
-         // Obtenha a quantidade de livros publicados
-         $totalAcessos = $ompstatDAO->gettotalAcessos();
-         $templateMgr->assign('totalAcessos', $totalAcessos);
+        // Obtenha a quantidade de acessos totais
+        $totalAcessos = $ompstatDAO->gettotalAcessos();
+        $templateMgr->assign('totalAcessos', $totalAcessos);
+
+        // Obtenha a quantidade de download totais
+        $totalDownloads = $ompstatDAO->gettotalDownloads();
+        $templateMgr->assign('totalDownloads', $totalDownloads);
+
+        // Obtenha a quantidade de series publicadas
+        $seriesPublicadas = $ompstatDAO->getseriesPublicadas();
+        $templateMgr->assign('seriesPublicadas', $seriesPublicadas);
+
+        // Obtenha a quantidade de categorias publicadas
+        $totalCategorias = $ompstatDAO->gettotalCategorias();
+        $templateMgr->assign('totalCategorias', $totalCategorias);
          
-          // Atribua a variável $meuTeste ao TemplateManager
-          $templateMgr->assign('meuTeste', $plugin->meuTeste);
+        // Atribua a variável $meuTeste ao TemplateManager
+        $templateMgr->assign('meuTeste', $plugin->meuTeste);
 
           return $templateMgr->display($plugin->getTemplateResource('index.tpl'));
       }

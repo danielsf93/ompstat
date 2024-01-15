@@ -12,11 +12,9 @@ class ompstatDAO extends DAO {
         $result = $this->retrieve(
             'SELECT COUNT(*) as total FROM publications WHERE status = 3;'
         );
-
         foreach ($result as $row) {
             return $row->total;
         }
-
         return 0; // Retorna 0 se não houver resultados
     }
 
@@ -24,20 +22,42 @@ class ompstatDAO extends DAO {
         $result = $this->retrieve(
             'SELECT SUM(metric) as total FROM metrics WHERE assoc_type IN (256, 1048585)'
         );
-
         foreach ($result as $row) {
             return $row->total;
         }
+        return 0; // Retorna 0 se não houver resultados
+    }
 
+    public function gettotalDownloads() {
+        $result = $this->retrieve(
+            'SELECT SUM(metric) as total FROM metrics WHERE assoc_type IN (515)'
+        );
+        foreach ($result as $row) {
+            return $row->total;
+        }
         return 0; // Retorna 0 se não houver resultados
     }
 
 
+    public function getseriesPublicadas() {
+        $result = $this->retrieve(
+            'SELECT COUNT(*) as total FROM series WHERE is_inactive = 0'
+        );
+        foreach ($result as $row) {
+            return $row->total;
+        }
+        return 0; // Retorna 0 se não houver resultados
+    }
 
-
-
-
-
+    public function gettotalCategorias() {
+        $result = $this->retrieve(
+            'SELECT COUNT(*) as total FROM categories WHERE context_id = 1'
+        );
+        foreach ($result as $row) {
+            return $row->total;
+        }
+        return 0; // Retorna 0 se não houver resultados
+    }
 
 
 
