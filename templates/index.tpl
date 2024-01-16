@@ -43,20 +43,32 @@
             </h3>
         </header>
 
-        <header class="row">
-            <h3 class="col-md-6">
-                <p>Lista de anos: {$yearsList}</p>
-            </h3>
-        </header>
+      
 
 
 <hr>
         <div class="container2">
         <header class="row">
         <h1 class="col-md-6">
-            <p>Estatisticas Por Ano:</p>
+            <p>Estatisticas de Acessos Por Ano:</p>
         </h1>
     </header>
+
+
+
+    <header class="row">
+    <h3 class="col-md-6">
+        <p>Lista de anos:</p>
+        {$yearsList}
+    </h3>
+</header>
+
+
+
+
+
+
+
 
         </div>
 

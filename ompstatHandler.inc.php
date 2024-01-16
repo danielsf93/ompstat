@@ -37,9 +37,11 @@ class ompstatHandler extends Handler {
         $totalUsuarios = $ompstatDAO->gettotalUsuarios();
         $templateMgr->assign('totalUsuarios', $totalUsuarios);
 
-        // Obtenha a quantidade de usuarios cadastrados
+        // Obtenha a lista de anos
         $yearsList = $ompstatDAO->getyearsList();
         $templateMgr->assign('yearsList', $yearsList);
+
+        
          
         // Atribua a variável $meuTeste ao TemplateManager
         $templateMgr->assign('meuTeste', $plugin->meuTeste);

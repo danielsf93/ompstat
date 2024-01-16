@@ -71,17 +71,18 @@ class ompstatDAO extends DAO {
 
     public function getyearsList() {
         $result = $this->retrieve(
-            'SELECT DISTINCT month FROM metrics WHERE submission_id IS NOT NULL'
+            'SELECT DISTINCT SUBSTRING(month, 1, 4) as year FROM metrics WHERE submission_id IS NOT NULL'
         );
     
         $yearsList = array();
     
         foreach ($result as $row) {
-            $yearsList[] = $row->month;
+            $yearsList[] = $row->year;
         }
     
-        return implode(', ', $yearsList);
+        return implode('<br>', array_unique($yearsList));
     }
+    
     
 
 
