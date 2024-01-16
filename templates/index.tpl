@@ -65,7 +65,6 @@
             {/foreach}
         </div>
 
-
         <hr>
         <p>TESTE: {$meuTeste}</p>
         <hr>

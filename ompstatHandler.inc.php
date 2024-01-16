@@ -37,7 +37,7 @@ class ompstatHandler extends Handler {
         $totalUsuarios = $ompstatDAO->gettotalUsuarios();
         $templateMgr->assign('totalUsuarios', $totalUsuarios);
 
-        // Obtenha a lista de meses
+       // Obtenha a lista de meses
     $monthsList = $ompstatDAO->getyearsList();
     $templateMgr->assign('monthsList', $monthsList);
 
