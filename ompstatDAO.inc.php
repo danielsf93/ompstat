@@ -69,7 +69,20 @@ class ompstatDAO extends DAO {
         return 0; // Retorna 0 se não houver resultados
     }
 
-
+    public function getyearsList() {
+        $result = $this->retrieve(
+            'SELECT DISTINCT month FROM metrics WHERE submission_id IS NOT NULL'
+        );
+    
+        $yearsList = array();
+    
+        foreach ($result as $row) {
+            $yearsList[] = $row->month;
+        }
+    
+        return implode(', ', $yearsList);
+    }
+    
 
 
 

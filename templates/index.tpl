@@ -43,6 +43,12 @@
             </h3>
         </header>
 
+        <header class="row">
+            <h3 class="col-md-6">
+                <p>Lista de anos: {$yearsList}</p>
+            </h3>
+        </header>
+
 
 <hr>
         <div class="container2">
