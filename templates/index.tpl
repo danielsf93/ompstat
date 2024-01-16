@@ -48,20 +48,22 @@
 
 <hr>
 <div class="container2">
-<header class="row">
-    <h1 class="col-md-6">
-        <p>Estatísticas de Acessos Por Ano:</p>
-    </h1>
-</header>
+            <header class="row">
+                <h1 class="col-md-6">
+                    <p>Estatísticas de Acessos Por Mês:</p>
+                </h1>
+            </header>
 
-{foreach from=$yearsList item=ano}
-    <header class="row">
-        <h3 class="col-md-6">
-            <p>{$ano}: {$metricsPorAno[$ano]}</p>
-        </h3>
-    </header>
-{/foreach}
-</div>
+            
+
+            {foreach from=$monthsList item=mes}
+                <header class="row">
+                    <h3 class="col-md-6">
+                        <p>{$mes}: {$metricsPorMes[$mes]}</p>
+                    </h3>
+                </header>
+            {/foreach}
+        </div>
 
 
         <hr>

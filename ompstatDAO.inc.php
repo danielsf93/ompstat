@@ -71,22 +71,22 @@ class ompstatDAO extends DAO {
 
     public function getyearsList() {
         $result = $this->retrieve(
-            'SELECT DISTINCT SUBSTRING(month, 1) as year FROM metrics WHERE submission_id IS NOT NULL'
+            'SELECT DISTINCT SUBSTRING(month, 1) as month FROM metrics WHERE submission_id IS NOT NULL'
         );
     
-        $yearsList = array();
+        $monthsList = array();
     
         foreach ($result as $row) {
-            $yearsList[] = $row->year;
+            $monthsList[] = $row->month;
         }
     
-        return array_unique($yearsList);
+        return array_unique($monthsList);
     }
 
-    public function getMetricsPorAno($ano) {
+    public function getMetricsPorMes($mes) {
         $result = $this->retrieve(
             'SELECT SUM(metric) as total FROM metrics WHERE submission_id IS NOT NULL AND assoc_type = 1048585 AND SUBSTRING(month, 1) = ?',
-            [$ano]
+            [$mes]
         );
     
         foreach ($result as $row) {
