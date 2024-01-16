@@ -47,30 +47,21 @@
 
 
 <hr>
-        <div class="container2">
-        <header class="row">
-        <h1 class="col-md-6">
-            <p>Estatisticas de Acessos Por Ano:</p>
-        </h1>
-    </header>
-
-
-
-    <header class="row">
-    <h3 class="col-md-6">
-        <p>Lista de anos:</p>
-        {$yearsList}
-    </h3>
+<div class="container2">
+<header class="row">
+    <h1 class="col-md-6">
+        <p>Estatísticas de Acessos Por Ano:</p>
+    </h1>
 </header>
 
-
-
-
-
-
-
-
-        </div>
+{foreach from=$yearsList item=ano}
+    <header class="row">
+        <h3 class="col-md-6">
+            <p>{$ano}: {$metricsPorAno[$ano]}</p>
+        </h3>
+    </header>
+{/foreach}
+</div>
 
 
         <hr>
