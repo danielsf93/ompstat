@@ -18,16 +18,17 @@ class ompstatDAO extends DAO {
         return 0; // Retorna 0 se não houver resultados
     }
 
-    public function gettotalAcessos() {
+   
+     public function gettotalAcessos() {
         $result = $this->retrieve(
-            'SELECT SUM(metric) as total FROM metrics WHERE assoc_type IN (256, 1048585)'
+            'SELECT SUM(metric) as total FROM metrics_submission WHERE assoc_type IN (256, 1048585)'
         );
         foreach ($result as $row) {
             return $row->total;
         }
         return 0; // Retorna 0 se não houver resultados
     }
-
+/*** 
     public function gettotalDownloads() {
         $result = $this->retrieve(
             'SELECT SUM(metric) as total FROM metrics WHERE assoc_type IN (515)'
@@ -38,7 +39,7 @@ class ompstatDAO extends DAO {
         return 0; // Retorna 0 se não houver resultados
     }
 
-
+**/
     public function getseriesPublicadas() {
         $result = $this->retrieve(
             'SELECT COUNT(*) as total FROM series WHERE is_inactive = 0'
@@ -68,7 +69,7 @@ class ompstatDAO extends DAO {
         }
         return 0; // Retorna 0 se não houver resultados
     }
-
+/*** 
     public function getyearsList() {
         $result = $this->retrieve(
             'SELECT DISTINCT SUBSTRING(month, 1) as month FROM metrics WHERE submission_id IS NOT NULL'
@@ -96,7 +97,7 @@ class ompstatDAO extends DAO {
         return 0;
     }
     
-    
+   **/
 
 
 
