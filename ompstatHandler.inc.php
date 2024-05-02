@@ -20,11 +20,11 @@ class ompstatHandler extends Handler {
         // Obtenha a quantidade de acessos totais
         $totalAcessos = $ompstatDAO->gettotalAcessos();
         $templateMgr->assign('totalAcessos', $totalAcessos);
-/*** 
+
         // Obtenha a quantidade de download totais
         $totalDownloads = $ompstatDAO->gettotalDownloads();
         $templateMgr->assign('totalDownloads', $totalDownloads);
-*/
+
         // Obtenha a quantidade de series publicadas
         $seriesPublicadas = $ompstatDAO->getseriesPublicadas();
         $templateMgr->assign('seriesPublicadas', $seriesPublicadas);

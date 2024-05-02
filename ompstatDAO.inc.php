@@ -28,10 +28,10 @@ class ompstatDAO extends DAO {
         }
         return 0; // Retorna 0 se não houver resultados
     }
-/*** 
+
     public function gettotalDownloads() {
         $result = $this->retrieve(
-            'SELECT SUM(metric) as total FROM metrics WHERE assoc_type IN (515)'
+            'SELECT SUM(metric) as total FROM metrics_submission WHERE assoc_type IN (515)'
         );
         foreach ($result as $row) {
             return $row->total;
@@ -39,7 +39,7 @@ class ompstatDAO extends DAO {
         return 0; // Retorna 0 se não houver resultados
     }
 
-**/
+
     public function getseriesPublicadas() {
         $result = $this->retrieve(
             'SELECT COUNT(*) as total FROM series WHERE is_inactive = 0'
