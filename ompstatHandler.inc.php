@@ -36,6 +36,12 @@ class ompstatHandler extends Handler {
         // Obtenha a quantidade de usuarios cadastrados
         $totalUsuarios = $ompstatDAO->gettotalUsuarios();
         $templateMgr->assign('totalUsuarios', $totalUsuarios);
+
+// Obtenha a quantidade de Autores
+$totalAutores = $ompstatDAO->gettotalAutores();
+$templateMgr->assign('totalAutores', $totalAutores);
+
+
 /*** 
        // Obtenha a lista de meses
     $monthsList = $ompstatDAO->getyearsList();

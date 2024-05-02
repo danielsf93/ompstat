@@ -36,15 +36,20 @@
                     <p>Categorias Publicadas: {$totalCategorias}</p>
                 </h3>
             </header>
-            </div>
+        
             <header class="row">
             <h3 class="col-md-6">
                 <p>Usuários Registrados: {$totalUsuarios}</p>
             </h3>
+
+            <header class="row">
+            <h3 class="col-md-6">
+                <p>Quantidade de Autores: {$totalAutores}</p>
+            </h3>
         </header>
 
       
-
+    </div>
 
 <hr>
 <div class="container2">
