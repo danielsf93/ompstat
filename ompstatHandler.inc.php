@@ -42,18 +42,6 @@ class ompstatHandler extends Handler {
         $templateMgr->assign('totalAutores', $totalAutores);
 
 
-/*** 
-       // Obtenha a lista de meses
-    $monthsList = $ompstatDAO->getyearsList();
-    $templateMgr->assign('monthsList', $monthsList);
-*/
-    // Calcula as métricas para cada mês
-    $metricsPorMes = array();
-    foreach ($monthsList as $mes) {
-        $metricsPorMes[$mes] = $ompstatDAO->getMetricsPorMes($mes);
-    }
-    $templateMgr->assign('metricsPorMes', $metricsPorMes);
-        
          
         // Atribua a variável $meuTeste ao TemplateManager
         $templateMgr->assign('meuTeste', $plugin->meuTeste);

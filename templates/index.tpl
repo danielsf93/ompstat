@@ -4,82 +4,40 @@
 
 <section class="estatisticas_gerais section_dark"{if $journalDescriptionColour} style="background-color: {$journalDescriptionColour|escape};"{/if}>
     <div class="container">
-        <header class="row">
-            <h1 class="col-md-6">
-                <p>Estatisticas Gerais:</p>
-            </h1>
+        <header>
+            <h1>Estatísticas Gerais:</h1>
         </header>
-        
-        <header class="row">
-            <header class="row">
-                <h3 class="col-md-6">
-                    <p>Livros Publicados: {$livrosPublicados}</p>
-                </h3>
-            </header>
-            <header class="row">
-                <h3 class="col-md-6">
-                    <p>Total de Acessos: {$totalAcessos}</p>
-                </h3>
-            </header>
-            <header class="row">
-                <h3 class="col-md-6">
-                    <p>Total de Downloads: {$totalDownloads}</p>
-                </h3>
-            </header>
-            <header class="row">
-                <h3 class="col-md-6">
-                    <p>Séries Publicadas: {$seriesPublicadas}</p>
-                </h3>
-            </header>
-            <header class="row">
-                <h3 class="col-md-6">
-                    <p>Categorias Publicadas: {$totalCategorias}</p>
-                </h3>
-            </header>
-        
-            <header class="row">
-            <h3 class="col-md-6">
-                <p>Usuários Registrados: {$totalUsuarios}</p>
-            </h3>
 
+        <ul class="list-unstyled">  <!-- Usando uma lista para melhor organização -->
+            <li><strong>Livros Publicados:</strong> {$livrosPublicados}</li>
+            <li><strong>Total de Acessos:</strong> {$totalAcessos}</li>
+            <li><strong>Total de Downloads:</strong> {$totalDownloads}</li>
+            <li><strong>Séries Publicadas:</strong> {$seriesPublicadas}</li>
+            <li><strong>Categorias Publicadas:</strong> {$totalCategorias}</li>
+            <li><strong>Usuários Registrados:</strong> {$totalUsuarios}</li>
+            <li><strong>Quantidade de Autores:</strong> {count($totalAutores)}</li>  <!-- Retorna direto a contagem -->
             
-            
-        
+        </ul>
 
+        <hr>
 
-            <header class="row">
-                        <h3 class="col-md-6">
+        <header>
+            <h3>Gráfico de Acessos</h3>  <!-- Uma seção separada para o gráfico -->
+        </header>
 
-            <p>Quantidade de Autores: {count($totalAutores)}</p>
+        <hr>
 
-      </h3>
-
-</header>
-
-    </div>
-
-<hr>
-<div class="container2">
-            <header class="row">
-                <h1 class="col-md-6">
-                    <p>Estatísticas de Acessos Por Mês:</p>
-                </h1>
+        <div class="container2">
+            <header>
+                <h1>Estatísticas de Acessos Por Mês:</h1>
             </header>
-
-            
-
-            {foreach from=$monthsList item=mes}
-                <header class="row">
-                    <h3 class="col-md-6">
-                        <p>{$mes}: {$metricsPorMes[$mes]}</p>
-                    </h3>
-                </header>
-            {/foreach}
         </div>
 
         <hr>
+
         <p>TESTE: {$meuTeste}</p>
-        <hr>
-    </section>
+
+    </div>
+</section>
 
 {include file="frontend/components/footer.tpl"}

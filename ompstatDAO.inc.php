@@ -77,9 +77,7 @@ class ompstatDAO extends DAO {
         $result = $this->retrieve(
             'SELECT DISTINCT email FROM authors'
         );
-    
         $totalAutores = []; // Lista para armazenar os e-mails únicos
-    
         // Verifica se há resultados e itera para adicionar e-mails à lista
         if ($result) {
             foreach ($result as $row) { // Itera sobre os resultados
@@ -88,39 +86,10 @@ class ompstatDAO extends DAO {
                 }
             }
         }
-    
         return $totalAutores; // Retorna a lista de e-mails únicos
     }
     
-/*** 
-    public function getyearsList() {
-        $result = $this->retrieve(
-            'SELECT DISTINCT SUBSTRING(month, 1) as month FROM metrics WHERE submission_id IS NOT NULL'
-        );
-    
-        $monthsList = array();
-    
-        foreach ($result as $row) {
-            $monthsList[] = $row->month;
-        }
-    
-        return array_unique($monthsList);
-    }
 
-    public function getMetricsPorMes($mes) {
-        $result = $this->retrieve(
-            'SELECT SUM(metric) as total FROM metrics WHERE submission_id IS NOT NULL AND assoc_type = 1048585 AND SUBSTRING(month, 1) = ?',
-            [$mes]
-        );
-    
-        foreach ($result as $row) {
-            return $row->total;
-        }
-    
-        return 0;
-    }
-    
-   **/
 
 
 
