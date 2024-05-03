@@ -19,10 +19,23 @@
             
         </ul>
 
+
+
+
+
+
+
+
+
+
+
+
         <hr>
 
         <header>
-            <h3>Gráfico de Acessos</h3>  <!-- Uma seção separada para o gráfico -->
+           <header>
+            <h1>Gráficos Gerais:</h1>
+        </header>
 
 
 {* Inclua o script Chart.js, você pode usar um CDN ou local *}
@@ -34,11 +47,10 @@
     <canvas id="downloadsPorMesGrafico"></canvas>  <!-- Onde o gráfico será renderizado -->
     
     <script>
-    // JavaScript para renderizar o gráfico
     var ctx = document.getElementById("downloadsPorMesGrafico").getContext("2d");
     
     // Obtem as datas e os valores dos downloads
-    var labels = [{foreach from=$downloadsPorMes item=download}{if !$smarty.foreach.downloadsPorMes.first},{/if}{"{$download.data}"}, {/foreach}];
+    var labels = [{foreach from=$downloadsPorMes item=download}{if !$smarty.foreach.downloadsPorMes.first},{/if}"{$download.data}", {/foreach}];
     var data = [{foreach from=$downloadsPorMes item=download}{if !$smarty.foreach.downloadsPorMes.first},{/if}{"{$download.total}"}, {/foreach}];
     
     // Cria o gráfico de barras usando Chart.js
@@ -69,16 +81,65 @@
 
 
 
-
+            
         </header>
 
         <hr>
 
-        <div class="container2">
-            <header>
-                <h1>Estatísticas de Acessos Por Mês:</h1>
-            </header>
-        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<section class="Acessos-por-mes">
+    <h2>Acessos por Mês</h2>
+    
+    <canvas id="acessosPorMesGrafico"></canvas>  <!-- Onde o gráfico será renderizado -->
+    
+    <script>
+    var ctx = document.getElementById("acessosPorMesGrafico").getContext("2d");
+    
+    // Obtem as datas e os valores dos Acessos
+    var labels = [{foreach from=$acessosPorMes item=download}{if !$smarty.foreach.acessosPorMes.first},{/if}"{$download.data}", {/foreach}];
+    var data = [{foreach from=$acessosPorMes item=download}{if !$smarty.foreach.acessosPorMes.first},{/if}{"{$download.total}"}, {/foreach}];
+    
+    // Cria o gráfico de barras usando Chart.js
+    var myChart = new Chart(ctx, {
+        type: "bar", // Tipo do gráfico
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Total de Acessos",
+                data: data,
+                backgroundColor: "rgba(54, 162, 235, 0.2)", // Cor das barras
+                borderColor: "rgba(54, 162, 235, 1)", // Cor da borda das barras
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true // Começa a escala do eixo Y no zero
+                    }
+                }]
+            }
+        }
+    });
+    </script>
+</section>
+
+</header>
+
+        
+
+
+
+
+
+
+
+
+
+
+
 
         <hr>
 

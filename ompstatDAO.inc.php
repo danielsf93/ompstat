@@ -89,8 +89,11 @@ class ompstatDAO extends DAO {
         return $totalAutores; // Retorna a lista de e-mails únicos
     }
     
+    
+    
+    
     public function getDownloadsPorMes() {
-        // Consulta para obter métricas com assoc_type = 515 e ordenar por data
+        // Consulta para obter métricas com assoc_type = 515, agrupadas por data e ordenadas
         $sql = '
             SELECT DATE(date) as data, SUM(metric) as total
             FROM metrics_submission
@@ -117,6 +120,33 @@ class ompstatDAO extends DAO {
         return $downloadsPorMes; // Retorna a lista de downloads por data
     }
     
+    public function getacessosPorMes() {
+        
+        $sql = '
+            SELECT DATE(date) as data, SUM(metric) as total
+            FROM metrics_submission
+            WHERE assoc_type = 1048585
+            GROUP BY DATE(date)
+            ORDER BY data ASC
+        ';
+        
+        $result = $this->retrieve($sql);
+    
+        $acessosPorMes = []; // Lista para armazenar os dados
+    
+        if ($result) {
+            foreach ($result as $row) {
+                if (isset($row->data, $row->total)) { // Verifica se os campos necessários existem
+                    $acessosPorMes[] = [
+                        'data' => $row->data,
+                        'total' => (int) $row->total,
+                    ];
+                }
+            }
+        }
+    
+        return $acessosPorMes; // Retorna a lista de Acessos por data
+    }
 
 
 

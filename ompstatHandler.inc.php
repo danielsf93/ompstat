@@ -44,6 +44,8 @@ class ompstatHandler extends Handler {
         $downloadsPorMes = $ompstatDAO->getDownloadsPorMes();
         $templateMgr->assign('downloadsPorMes', $downloadsPorMes);
 
+        $acessosPorMes = $ompstatDAO->getacessosPorMes();
+        $templateMgr->assign('acessosPorMes', $acessosPorMes);
 
          
         // Atribua a variável $meuTeste ao TemplateManager
