@@ -37,9 +37,9 @@ class ompstatHandler extends Handler {
         $totalUsuarios = $ompstatDAO->gettotalUsuarios();
         $templateMgr->assign('totalUsuarios', $totalUsuarios);
 
-// Obtenha a quantidade de Autores
-$totalAutores = $ompstatDAO->gettotalAutores();
-$templateMgr->assign('totalAutores', $totalAutores);
+        // Obtenha a quantidade de Autores
+        $totalAutores = $ompstatDAO->totalAutores();
+        $templateMgr->assign('totalAutores', $totalAutores);
 
 
 /*** 

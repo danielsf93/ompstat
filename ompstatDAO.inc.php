@@ -70,19 +70,28 @@ class ompstatDAO extends DAO {
         return 0; // Retorna 0 se não houver resultados
     }
 
-
-    //verificar repetições
-    public function gettotalAutores() {
+    public function totalAutores() {
+        /*** A quantidade de autores é obtida pela quantidade de emails utilizados nas publicações. 
+        não se utiliza autores da tabela usuários, pois muitos podem estar cadastrados como autores,
+        mas podem nunca ter publicado */
         $result = $this->retrieve(
-            'SELECT COUNT(*) as total FROM authors'
+            'SELECT DISTINCT email FROM authors'
         );
-        foreach ($result as $row) {
-            return $row->total;
+    
+        $totalAutores = []; // Lista para armazenar os e-mails únicos
+    
+        // Verifica se há resultados e itera para adicionar e-mails à lista
+        if ($result) {
+            foreach ($result as $row) { // Itera sobre os resultados
+                if (isset($row->email)) { // Verifica se a coluna 'email' existe
+                    $totalAutores[] = $row->email; // Adiciona o e-mail à lista
+                }
+            }
         }
-        return 0; // Retorna 0 se não houver resultados
+    
+        return $totalAutores; // Retorna a lista de e-mails únicos
     }
-
-
+    
 /*** 
     public function getyearsList() {
         $result = $this->retrieve(

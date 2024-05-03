@@ -42,13 +42,20 @@
                 <p>Usuários Registrados: {$totalUsuarios}</p>
             </h3>
 
-            <header class="row">
-            <h3 class="col-md-6">
-                <p>Quantidade de Autores: {$totalAutores}</p>
-            </h3>
-        </header>
+            
+            
+        
 
-      
+
+            <header class="row">
+                        <h3 class="col-md-6">
+
+            <p>Quantidade de Autores: {count($totalAutores)}</p>
+
+      </h3>
+
+</header>
+
     </div>
 
 <hr>
