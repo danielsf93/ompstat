@@ -128,10 +128,16 @@
 
 </header>
 
-        
+        <hr>
+        <h2>Top 3 Livros Mais Acessados</h2>
 
-
-
+<ol> <!-- Lista ordenada para mostrar os top 3 -->
+    {foreach from=$top3Livros item=livro} <!-- Itera sobre o array -->
+        <li>
+            Submission ID: {$livro.submission_id}, Acessos: {$livro.total_metric} <!-- Mostra os valores do array -->
+        </li>
+    {/foreach}
+</ol>
 
 
 

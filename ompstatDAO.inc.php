@@ -150,6 +150,38 @@ class ompstatDAO extends DAO {
 
 
 
+    public function getTop3LivrosMaisAcessados() {
+        // Primeiro passo: Soma dos valores de 'metric' para cada 'submission_id'
+        $sql = '
+            SELECT submission_id, SUM(metric) as total_metric
+            FROM metrics_submission
+            WHERE assoc_type = 1048585
+            GROUP BY submission_id
+            ORDER BY total_metric DESC
+            LIMIT 3 
+        ';
+    
+        $result = $this->retrieve($sql);
+    
+        $top3Livros = []; // Lista para armazenar os dados do Top 3
+    
+        if ($result) {
+            foreach ($result as $row) {
+                if (isset($row->submission_id, $row->total_metric)) {
+                    $top3Livros[] = [
+                        'submission_id' => $row->submission_id,
+                        'total_metric' => (int) $row->total_metric,
+                    ];
+                }
+            }
+        }
+    
+        return $top3Livros; // Retorna a lista dos Top 3 livros
+    }
+    
+
+
+
 
 
 
