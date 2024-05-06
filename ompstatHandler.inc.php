@@ -51,7 +51,11 @@ class ompstatHandler extends Handler {
         $top3Livros = $ompstatDAO->getTop3LivrosMaisAcessados();
         $templateMgr->assign('top3Livros', $top3Livros);
 
-        
+     
+    // Obtem os títulos para os 'submission_id'
+    $top3LivrosComTitulos = $ompstatDAO->getLivrosComTitulos($top3Livros);
+    $templateMgr->assign('top3Livros', $top3LivrosComTitulos);
+
 
         
 

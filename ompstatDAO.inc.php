@@ -178,8 +178,42 @@ class ompstatDAO extends DAO {
     
         return $top3Livros; // Retorna a lista dos Top 3 livros
     }
+   
     
-
+    public function getLivrosComTitulos($top3Livros) {
+        // Obtem os 'submission_id' do Top 3
+        $submissionIds = array_column($top3Livros, 'submission_id');
+    
+        if (empty($submissionIds)) {
+            return []; // Retorna uma lista vazia se não houver resultados
+        }
+    
+        // Consulta para obter os títulos dos livros
+        $sql = '
+            SELECT publication_id, setting_value AS title
+            FROM publication_settings
+            WHERE publication_id IN (' . implode(',', $submissionIds) . ')
+            AND setting_name = \'title\'
+        ';
+    
+        $result = $this->retrieve($sql);
+    
+        if ($result) {
+            foreach ($result as $row) {
+                foreach ($top3Livros as &$livro) {
+                    if ($livro['submission_id'] == $row->publication_id) {  // Corrigido para usar notação de objeto
+                        $livro['title'] = $row->title; // Acessa propriedade como objeto
+                    }
+                }
+            }
+        }
+    
+        return $top3Livros; // Retorna a lista dos Top 3 com títulos
+    }
+    
+    
+    
+    
 
 
 
