@@ -48,20 +48,29 @@ class ompstatHandler extends Handler {
         $templateMgr->assign('acessosPorMes', $acessosPorMes);
 
 
-        $top3Livros = $ompstatDAO->getTop3LivrosMaisAcessados();
-        $templateMgr->assign('top3Livros', $top3Livros);
+        $topLivros = $ompstatDAO->getTopLivrosMaisAcessados();
+        $templateMgr->assign('topLivros', $topLivros);
 
      
     // Obtem os títulos para os 'submission_id'
-    $top3LivrosComTitulos = $ompstatDAO->getLivrosComTitulos($top3Livros);
-    $templateMgr->assign('top3Livros', $top3LivrosComTitulos);
+    $topLivrosComTitulos = $ompstatDAO->getLivrosComTitulos($topLivros);
+    $templateMgr->assign('topLivros', $topLivrosComTitulos);
 
 
         // top Autores
         $topAutores = $ompstatDAO->getTopAutoresComPublicacoes();
         $templateMgr->assign('topAutores', $topAutores);
 
+
+        // top unidades
+        $unidadesComMaisPublicacoes = $ompstatDAO->getUnidadesComMaisPublicacoes();
+        $templateMgr->assign('unidadesComMaisPublicacoes', $unidadesComMaisPublicacoes);
          
+
+
+
+
+
         // Atribua a variável $meuTeste ao TemplateManager
         $templateMgr->assign('meuTeste', $plugin->meuTeste);
 

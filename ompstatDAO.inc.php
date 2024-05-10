@@ -150,7 +150,7 @@ class ompstatDAO extends DAO {
 
 
 
-    public function getTop3LivrosMaisAcessados() {
+    public function getTopLivrosMaisAcessados() {
         // Primeiro passo: Soma dos valores de 'metric' para cada 'submission_id'
         $sql = '
             SELECT submission_id, SUM(metric) as total_metric
@@ -158,17 +158,17 @@ class ompstatDAO extends DAO {
             WHERE assoc_type = 1048585
             GROUP BY submission_id
             ORDER BY total_metric DESC
-            LIMIT 3 
+            LIMIT 10 
         ';
     
         $result = $this->retrieve($sql);
     
-        $top3Livros = []; // Lista para armazenar os dados do Top 3
+        $topLivros = []; // Lista para armazenar os dados do Top 3
     
         if ($result) {
             foreach ($result as $row) {
                 if (isset($row->submission_id, $row->total_metric)) {
-                    $top3Livros[] = [
+                    $topLivros[] = [
                         'submission_id' => $row->submission_id,
                         'total_metric' => (int) $row->total_metric,
                     ];
@@ -176,13 +176,13 @@ class ompstatDAO extends DAO {
             }
         }
     
-        return $top3Livros; // Retorna a lista dos Top 3 livros
+        return $topLivros; // Retorna a lista dos Top 3 livros
     }
    
     
-    public function getLivrosComTitulos($top3Livros) {
+    public function getLivrosComTitulos($topLivros) {
         // Obtem os 'submission_id' do Top 3
-        $submissionIds = array_column($top3Livros, 'submission_id');
+        $submissionIds = array_column($topLivros, 'submission_id');
     
         if (empty($submissionIds)) {
             return []; // Retorna uma lista vazia se não houver resultados
@@ -200,7 +200,7 @@ class ompstatDAO extends DAO {
     
         if ($result) {
             foreach ($result as $row) {
-                foreach ($top3Livros as &$livro) {
+                foreach ($topLivros as &$livro) {
                     if ($livro['submission_id'] == $row->publication_id) {  // Corrigido para usar notação de objeto
                         $livro['title'] = $row->title; // Acessa propriedade como objeto
                     }
@@ -208,7 +208,7 @@ class ompstatDAO extends DAO {
             }
         }
     
-        return $top3Livros; // Retorna a lista dos Top 3 com títulos
+        return $topLivros; // Retorna a lista dos Top 3 com títulos
     }
     
     
@@ -255,7 +255,43 @@ class ompstatDAO extends DAO {
     }
     
 
-
+    public function getUnidadesComMaisPublicacoes() {
+        $sql = '
+            SELECT setting_value as unidade, COUNT(*) as total_publicacoes
+            FROM publication_settings
+            WHERE locale = "pt_BR"
+            AND setting_name = "copyrightHolder"
+            GROUP BY setting_value
+            ORDER BY total_publicacoes DESC
+            LIMIT 10 
+        ';
+        
+        $result = $this->retrieve($sql);
+        $unidades = [];
+        
+        if ($result) {
+            foreach ($result as $row) {
+                if (isset($row->unidade, $row->total_publicacoes)) {
+                    $unidadeNome = $row->unidade;
+                    
+                    // Verifica se a unidade começa com "Universidade de São Paulo. "
+                    if (strpos($unidadeNome, "Universidade de São Paulo. ") === 0) {
+                        // Remove essa parte do início da string
+                        $unidadeNome = substr($unidadeNome, strlen("Universidade de São Paulo. "));
+                    }
+                    
+                    $unidades[] = [
+                        'unidade' => $unidadeNome,
+                        'total_publicacoes' => (int) $row->total_publicacoes,
+                    ];
+                }
+            }
+        }
+        
+        return $unidades; // Retorna a lista de unidades com as contagens
+    }
+    
+    
 
 
 

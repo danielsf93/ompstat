@@ -9,6 +9,7 @@
         </header>
 
         <ul class="list-unstyled">  <!-- Usando uma lista para melhor organização -->
+          
             <li><strong>Livros Publicados:</strong> {$livrosPublicados}</li>
             <li><strong>Total de Acessos:</strong> {$totalAcessos}</li>
             <li><strong>Total de Downloads:</strong> {$totalDownloads}</li>
@@ -16,7 +17,7 @@
             <li><strong>Categorias Publicadas:</strong> {$totalCategorias}</li>
             <li><strong>Usuários Registrados:</strong> {$totalUsuarios}</li>
             <li><strong>Quantidade de Autores:</strong> {count($totalAutores)}</li>  <!-- Retorna direto a contagem -->
-            
+          
         </ul>
 
 
@@ -30,12 +31,10 @@
 
 
 
-        <hr>
+       
 
         <header>
-           <header>
-            <h1>Gráficos Gerais:</h1>
-        </header>
+          
 
 
 
@@ -86,7 +85,6 @@
 
 </header>
 
-        <hr>
 
 <section class="downloads-por-mes">
     <h2>Downloads por Mês</h2>
@@ -131,14 +129,14 @@
             
         </header>
 
-        <hr>
+        
 
 
       
-<h2>Top 3 Livros Mais Acessados de Todos os Tempos</h2>
+<h2>Top 10 Livros Mais Acessados de Todos os Tempos</h2>
 
 <ol> <!-- Lista ordenada para mostrar os top 3 -->
-    {foreach from=$top3Livros item=livro} <!-- Itera sobre o array -->
+    {foreach from=$topLivros item=livro} <!-- Itera sobre o array -->
         <li>
             {assign var="link" value={url page='catalog' op='book' path=['book' => $livro.submission_id]}}
 
@@ -148,7 +146,7 @@
 </ol>
 
 
-        <hr>
+       
 
 <h2>Top 10 Autores com Mais Publicações:</h2>
 
@@ -157,7 +155,10 @@
     {foreach from=$topAutores item=autor}
         {if $counter < 10} 
             <li>
-                {$autor.nome_completo} possui {$autor.total_publicacoes} publicações
+                <a href="{url page='search' router=$smarty.const.ROUTE_PAGE}/search/search?query={$autor.nome_completo}" target="_blank">
+                    {$autor.nome_completo}
+                </a> 
+                possui {$autor.total_publicacoes} publicações
             </li>
             {assign var="counter" value=$counter + 1} 
         {/if}
@@ -171,9 +172,15 @@
 
 
 
-<hr>
+<h2>Unidades com Mais Publicações:</h2>
 
-<h2>Unidades Com Mais publicações:</h2>
+<ol>
+    {foreach from=$unidadesComMaisPublicacoes item=unidade}
+        <li>
+            {$unidade.unidade} possui {$unidade.total_publicacoes} publicações
+        </li>
+    {/foreach}
+</ol>
 
 
 
@@ -181,7 +188,9 @@
 
 
 
-<hr>
+
+
+
         <p>TESTE: {$meuTeste}</p>
 
     </div>
