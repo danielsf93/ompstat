@@ -20,20 +20,47 @@ msgstr "Estatísticas Gerais"
 msgid "plugins.generic.ompstat.description"
 msgstr "Pagina estática para demonstrar as estatisticas gerais do portal OMP - /ompstat"
 
-Livros Publicados:
-Total de Acessos:
-Total de Downloads:
-Séries Publicadas:
-Categorias Publicadas:
-Usuários Registrados:
-Quantidade de Autores: 
-Acessos por Mês
-Total de Acessos por Mês
-Downloads por Mês
-Total de Downloads
-Top 10 Livros Mais Acessados de Todos os Tempos
-Acessos
-Top 10 Autores com Mais Publicações:
-possui
-publicações
-Unidades com Mais Publicações:
+msgid "plugins.generic.ompstat.livrosPublicados"
+msgstr "Livros Publicados:"
+
+msgid "plugins.generic.ompstat.totalAcessos"
+msgstr "Total de Acessos:"
+
+msgid "plugins.generic.ompstat.totalDownloads"
+msgstr "Total de Downloads:"
+
+msgid "plugins.generic.ompstat.seriesPublicadas"
+msgstr "Séries Publicadas:"
+
+msgid "plugins.generic.ompstat.totalCategorias"
+msgstr "Categorias Publicadas:"
+
+msgid "plugins.generic.ompstat.totalUsuarios"
+msgstr "Usuários Registrados:"
+
+msgid "plugins.generic.ompstat.totalAutores"
+msgstr "Quantidade de Autores: "
+
+msgid "plugins.generic.ompstat.getacessosPorMes"
+msgstr "Acessos por Mês"
+
+msgid "plugins.generic.ompstat.getDownloadsPorMes"
+msgstr "Downloads por Mês"
+
+msgid "plugins.generic.ompstat.getTopLivrosMaisAcessados"
+msgstr "Livros Mais Acessados de Todos os Tempos"
+
+msgid "plugins.generic.ompstat.acess"
+msgstr "Acessos:"
+
+msgid "plugins.generic.ompstat.getTopAutoresComPublicacoes"
+msgstr "Autores com Mais Publicações:"
+
+msgid "plugins.generic.ompstat.have"
+msgstr "possui"
+
+msgid "plugins.generic.ompstat.pub"
+msgstr "publicações"
+
+msgid "plugins.generic.ompstat.getUnidadesComMaisPublicacoes"
+msgstr "Unidades com Mais Publicações:"

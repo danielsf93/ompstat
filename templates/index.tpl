@@ -10,13 +10,13 @@
 
         <ul class="list-unstyled">  <!-- Usando uma lista para melhor organização -->
           
-            <li><strong>Livros Publicados:</strong> {$livrosPublicados}</li>
-            <li><strong>Total de Acessos:</strong> {$totalAcessos}</li>
-            <li><strong>Total de Downloads:</strong> {$totalDownloads}</li>
-            <li><strong>Séries Publicadas:</strong> {$seriesPublicadas}</li>
-            <li><strong>Categorias Publicadas:</strong> {$totalCategorias}</li>
-            <li><strong>Usuários Registrados:</strong> {$totalUsuarios}</li>
-            <li><strong>Quantidade de Autores:</strong> {count($totalAutores)}</li>  <!-- Retorna direto a contagem -->
+            <li><strong>{translate key="plugins.generic.ompstat.livrosPublicados"}</strong> {$livrosPublicados}</li>
+            <li><strong>{translate key="plugins.generic.ompstat.totalAcessos"}</strong> {$totalAcessos}</li>
+            <li><strong>{translate key="plugins.generic.ompstat.totalDownloads"}</strong> {$totalDownloads}</li>
+            <li><strong>{translate key="plugins.generic.ompstat.seriesPublicadas"}</strong> {$seriesPublicadas}</li>
+            <li><strong>{translate key="plugins.generic.ompstat.totalCategorias"}</strong> {$totalCategorias}</li>
+            <li><strong>{translate key="plugins.generic.ompstat.totalUsuarios"}</strong> {$totalUsuarios}</li>
+            <li><strong>{translate key="plugins.generic.ompstat.totalAutores"}</strong> {count($totalAutores)}</li>  <!-- Retorna direto a contagem -->
           
         </ul>
 
@@ -37,7 +37,7 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <section class="Acessos-por-mes">
-    <h2>Acessos por Mês</h2>
+    <h2>{translate key="plugins.generic.ompstat.getacessosPorMes"}</h2>
     
     <canvas id="acessosPorMesGrafico"></canvas>  <!-- Onde o gráfico será renderizado -->
     
@@ -54,7 +54,7 @@
         data: {
             labels: labels, // Agora usando meses como rótulos
             datasets: [{
-                label: "Total de Acessos por Mês",
+                label: "{translate key="plugins.generic.ompstat.getacessosPorMes"}",
                 data: data,
                 backgroundColor: "rgba(54, 162, 235, 0.2)", // Cor das barras
                 borderColor: "rgba(54, 162, 235, 1)", // Cor da borda das barras
@@ -77,7 +77,7 @@
 
 
 <section class="downloads-por-mes">
-    <h2>Downloads por Mês</h2>
+    <h2>{translate key="plugins.generic.ompstat.getDownloadsPorMes"}</h2>
     
     <canvas id="downloadsPorMesGrafico"></canvas>  <!-- Onde o gráfico será renderizado -->
     
@@ -94,7 +94,7 @@
         data: {
             labels: labels,
             datasets: [{
-                label: "Total de Downloads",
+                label: "{translate key="plugins.generic.ompstat.getDownloadsPorMes"}",
                 data: data,
                 backgroundColor: "rgba(54, 162, 235, 0.2)", // Cor das barras
                 borderColor: "rgba(54, 162, 235, 1)", // Cor da borda das barras
@@ -123,14 +123,14 @@
 
 
       
-<h2>Top 10 Livros Mais Acessados de Todos os Tempos</h2>
+<h2>{translate key="plugins.generic.ompstat.getTopLivrosMaisAcessados"}</h2>
 
 <ol> <!-- Lista ordenada para mostrar os top 3 -->
     {foreach from=$topLivros item=livro} <!-- Itera sobre o array -->
         <li>
             {assign var="link" value={url page='catalog' op='book' path=['book' => $livro.submission_id]}}
 
-            <a href="{$link}" target="_blank"> {$livro.title}</a> Acessos: {$livro.total_metric}
+            <a href="{$link}" target="_blank"> {$livro.title}</a> {translate key="plugins.generic.ompstat.acess"} {$livro.total_metric}
         </li>
     {/foreach}
 </ol>
@@ -138,7 +138,7 @@
 
        
 
-<h2>Top 10 Autores com Mais Publicações:</h2>
+<h2>{translate key="plugins.generic.ompstat.getTopAutoresComPublicacoes"}</h2>
 
 <ol>
     {assign var="counter" value=0} 
@@ -148,7 +148,7 @@
                 <a href="{url page='search' router=$smarty.const.ROUTE_PAGE}/search/search?query={$autor.nome_completo}" target="_blank">
                     {$autor.nome_completo}
                 </a> 
-                possui {$autor.total_publicacoes} publicações
+                {translate key="plugins.generic.ompstat.have"} {$autor.total_publicacoes} {translate key="plugins.generic.ompstat.pub"}
             </li>
             {assign var="counter" value=$counter + 1} 
         {/if}
@@ -162,12 +162,12 @@
 
 
 
-<h2>Unidades com Mais Publicações:</h2>
+<h2>{translate key="plugins.generic.ompstat.getUnidadesComMaisPublicacoes"}</h2>
 
 <ol>
     {foreach from=$unidadesComMaisPublicacoes item=unidade}
         <li>
-            {$unidade.unidade} possui {$unidade.total_publicacoes} publicações
+            {$unidade.unidade} {translate key="plugins.generic.ompstat.have"} {$unidade.total_publicacoes} {translate key="plugins.generic.ompstat.pub"}
         </li>
     {/foreach}
 </ol>
