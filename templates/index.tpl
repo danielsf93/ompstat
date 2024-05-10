@@ -5,7 +5,7 @@
 <section class="estatisticas_gerais section_dark"{if $journalDescriptionColour} style="background-color: {$journalDescriptionColour|escape};"{/if}>
     <div class="container">
         <header>
-            <h1>Estatísticas Gerais:</h1>
+            <h1>{translate key="plugins.generic.ompstat.displayname"}</h1>
         </header>
 
         <ul class="list-unstyled">  <!-- Usando uma lista para melhor organização -->
@@ -19,16 +19,6 @@
             <li><strong>Quantidade de Autores:</strong> {count($totalAutores)}</li>  <!-- Retorna direto a contagem -->
           
         </ul>
-
-
-
-
-
-
-
-
-
-
 
 
        
@@ -127,7 +117,7 @@
 
 
             
-        </header>
+        
 
         
 
@@ -191,7 +181,7 @@
 
 
 
-        <p>TESTE: {$meuTeste}</p>
+     {**   <p>TESTE: {$meuTeste}</p> *}
 
     </div>
 </section>

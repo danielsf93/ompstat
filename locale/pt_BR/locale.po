@@ -6,7 +6,7 @@ msgstr ""
 "PO-Revision-Date: 2020-06-06 02:30+0000\n"
 "Last-Translator: Daniel Silva Ferreira <daniel.ferreira@abcd.usp.br>\n"
 "Language-Team: Portuguese (Brazil) "
-"plugins/fullsearch-plugin/pt_BR/>\n"
+"plugins/ompstat-plugin/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,17 +14,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "plugins.generic.fullsearch.displayname"
-msgstr "Livros por Unidade"
+msgid "plugins.generic.ompstat.displayname"
+msgstr "Estatísticas Gerais"
 
-msgid "plugins.generic.fullsearch.description"
-msgstr "Página com lista de livros por unidade. Após instalado, a página pode ser acessada em site.com/index.php/editora/fullsearch"
+msgid "plugins.generic.ompstat.description"
+msgstr "Pagina estática para demonstrar as estatisticas gerais do portal OMP - /ompstat"
 
-msgid "plugins.generic.fullsearch.pagetitle"
-msgstr "Livros por Unidade:"
-
-msgid "plugins.generic.fullsearch.show"
-msgstr "Mostrar Lista"
-
-msgid "plugins.generic.fullsearch.hide"
-msgstr "Recolher"
+Livros Publicados:
+Total de Acessos:
+Total de Downloads:
+Séries Publicadas:
+Categorias Publicadas:
+Usuários Registrados:
+Quantidade de Autores: 
+Acessos por Mês
+Total de Acessos por Mês
+Downloads por Mês
+Total de Downloads
+Top 10 Livros Mais Acessados de Todos os Tempos
+Acessos
+Top 10 Autores com Mais Publicações:
+possui
+publicações
+Unidades com Mais Publicações:
