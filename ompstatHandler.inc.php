@@ -57,7 +57,9 @@ class ompstatHandler extends Handler {
     $templateMgr->assign('top3Livros', $top3LivrosComTitulos);
 
 
-        
+        // top Autores
+        $topAutores = $ompstatDAO->getTopAutoresComPublicacoes();
+        $templateMgr->assign('topAutores', $topAutores);
 
          
         // Atribua a variável $meuTeste ao TemplateManager

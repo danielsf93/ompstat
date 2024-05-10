@@ -95,7 +95,7 @@ class ompstatDAO extends DAO {
     public function getDownloadsPorMes() {
         // Consulta para obter métricas com assoc_type = 515, agrupadas por data e ordenadas
         $sql = '
-            SELECT DATE(date) as data, SUM(metric) as total
+            SELECT DATE_FORMAT(date, "%Y-%m") as data, SUM(metric) as total
             FROM metrics_submission
             WHERE assoc_type = 515
             GROUP BY DATE(date)
@@ -121,32 +121,32 @@ class ompstatDAO extends DAO {
     }
     
     public function getacessosPorMes() {
-        
         $sql = '
-            SELECT DATE(date) as data, SUM(metric) as total
+            SELECT DATE as mes, SUM(metric) as total
             FROM metrics_submission
             WHERE assoc_type = 1048585
-            GROUP BY DATE(date)
-            ORDER BY data ASC
+            GROUP BY mes
+            ORDER BY mes ASC
         ';
-        
+    
         $result = $this->retrieve($sql);
     
         $acessosPorMes = []; // Lista para armazenar os dados
     
         if ($result) {
             foreach ($result as $row) {
-                if (isset($row->data, $row->total)) { // Verifica se os campos necessários existem
+                if (isset($row->mes, $row->total)) { // Verifica se os campos necessários existem
                     $acessosPorMes[] = [
-                        'data' => $row->data,
+                        'mes' => $row->mes, // Meses agrupados
                         'total' => (int) $row->total,
                     ];
                 }
             }
         }
     
-        return $acessosPorMes; // Retorna a lista de Acessos por data
+        return $acessosPorMes; // Retorna a lista de acessos agrupados por mês
     }
+    
 
 
 
@@ -213,6 +213,46 @@ class ompstatDAO extends DAO {
     
     
     
+    public function getTopAutoresComPublicacoes() {
+        // Consulta para obter nomes completos dos autores e contar publicações
+        $sql = '
+            SELECT 
+                CONCAT(givenName.setting_value, " ", familyName.setting_value) AS nome_completo, 
+                COUNT(DISTINCT givenName.author_id) AS total_publicacoes
+            FROM 
+                author_settings AS givenName
+            JOIN 
+                author_settings AS familyName
+            ON 
+                givenName.author_id = familyName.author_id
+            WHERE 
+                givenName.setting_name = "givenName" 
+                AND familyName.setting_name = "familyName"
+                AND givenName.locale = "pt_BR"
+                AND familyName.locale = "pt_BR"
+            GROUP BY 
+                nome_completo  -- Agrupa pelo nome completo
+            ORDER BY 
+                total_publicacoes DESC
+        ';
+        
+        $result = $this->retrieve($sql);
+    
+        $topAutores = [];  // Lista para armazenar a contagem de publicações por autor
+        
+        if ($result) {
+            foreach ($result as $row) {
+                if (isset($row->nome_completo, $row->total_publicacoes)) {  // Verifica se os campos existem
+                    $topAutores[] = [
+                        'nome_completo' => $row->nome_completo,
+                        'total_publicacoes' => (int) $row->total_publicacoes
+                    ];
+                }
+            }
+        }
+        
+        return $topAutores;  // Retorna a lista de autores com a contagem de publicações
+    }
     
 
 
