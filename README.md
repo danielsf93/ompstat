@@ -21,9 +21,8 @@ For now, the data obtained is:<br>
 
 
 
-![image](https://github.com/danielsf93/ompstat/assets/114300053/e270aa4b-9cc9-4db3-a36a-9f48dd09e0ed)
+![image](https://github.com/danielsf93/ompstat/assets/114300053/8fd67c63-c1ab-4c52-b5f6-187f5d6b2a7e)
 
-![image](https://github.com/danielsf93/ompstat/assets/114300053/1ff444d2-71d6-48d6-9ffa-175c1d139896)
 
 
 
