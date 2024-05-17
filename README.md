@@ -55,10 +55,7 @@ Por hora, os dados obtidos são:<br>
 
 
 
-
-![image](https://github.com/danielsf93/ompstat/assets/114300053/e270aa4b-9cc9-4db3-a36a-9f48dd09e0ed)
-
-![image](https://github.com/danielsf93/ompstat/assets/114300053/1ff444d2-71d6-48d6-9ffa-175c1d139896)
+![image](https://github.com/danielsf93/ompstat/assets/114300053/85a9eb06-44d7-4060-9b52-7bf8121b758d)
 
 
 
