@@ -13,3 +13,54 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.ompstat.displayname"
+msgstr "Statistiques Générales"
+
+msgid "plugins.generic.ompstat.description"
+msgstr "Page statique pour montrer les statistiques générales du portail OMP - /ompstat"
+
+msgid "plugins.generic.ompstat.livrosPublicados"
+msgstr "Livres Publiés :"
+
+msgid "plugins.generic.ompstat.totalAcessos"
+msgstr "Total des Accès :"
+
+msgid "plugins.generic.ompstat.totalDownloads"
+msgstr "Total des Téléchargements :"
+
+msgid "plugins.generic.ompstat.seriesPublicadas"
+msgstr "Séries Publiées :"
+
+msgid "plugins.generic.ompstat.totalCategorias"
+msgstr "Catégories Publiées :"
+
+msgid "plugins.generic.ompstat.totalUsuarios"
+msgstr "Utilisateurs Enregistrés :"
+
+msgid "plugins.generic.ompstat.totalAutores"
+msgstr "Nombre d'Auteurs :"
+
+msgid "plugins.generic.ompstat.getacessosPorMes"
+msgstr "Accès par Mois"
+
+msgid "plugins.generic.ompstat.getDownloadsPorMes"
+msgstr "Téléchargements par Mois"
+
+msgid "plugins.generic.ompstat.getTopLivrosMaisAcessados"
+msgstr "Livres les Plus Consultés de Tous les Temps"
+
+msgid "plugins.generic.ompstat.acess"
+msgstr "Accès :"
+
+msgid "plugins.generic.ompstat.getTopAutoresComPublicacoes"
+msgstr "Auteurs avec le Plus de Publications :"
+
+msgid "plugins.generic.ompstat.have"
+msgstr "a"
+
+msgid "plugins.generic.ompstat.pub"
+msgstr "publications"
+
+msgid "plugins.generic.ompstat.getUnidadesComMaisPublicacoes"
+msgstr "Unités avec le Plus de Publications :"

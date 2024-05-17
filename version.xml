@@ -6,7 +6,7 @@
 	<application>ompstat</application>
 	<type>plugins.generic</type>
 	<release>0.1.0.0</release>
-	<date>2024-05-10</date>
+	<date>2024-05-17</date>
 	<lazy-load>1</lazy-load>
 	<class>ompstat</class>
 </version>
