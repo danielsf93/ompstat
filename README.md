@@ -26,8 +26,6 @@ For now, the data obtained is:<br>
 
 
 
-<br><br>Observations:<br>
-- translations remain to be done. For now it is only with pt_BR.
 <hr>
 
 
@@ -59,6 +57,4 @@ Por hora, os dados obtidos são:<br>
 
 
 
-<br><br>Obsevações:<br>
--falta fazer as traduções. Por enquanto está somente com pt_BR.
 
