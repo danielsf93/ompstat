@@ -18,23 +18,13 @@
             <li><strong>{translate key="plugins.generic.ompstat.totalUsuarios"}</strong> {$totalUsuarios}</li>
             <li><strong>{translate key="plugins.generic.ompstat.totalAutores"}</strong> {count($totalAutores)}</li>  <!-- Retorna direto a contagem -->
           
-        </ul>
-
-
-       
+        </ul>    
 
         <header>
-          
-
-
-
-
 
 {* Inclua o script Chart.js, você pode usar um CDN ou local *}
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <section class="Acessos-por-mes">
     <h2>{translate key="plugins.generic.ompstat.getacessosPorMes"}</h2>
@@ -113,19 +103,10 @@
     });
     </script>
 </section>
-
-
-
-            
-        
-
-        
-
-
       
 <h2>{translate key="plugins.generic.ompstat.getTopLivrosMaisAcessados"}</h2>
 
-<ol> <!-- Lista ordenada para mostrar os top 3 -->
+<ol> <!-- Lista ordenada para mostrar os top 10 livros -->
     {foreach from=$topLivros item=livro} <!-- Itera sobre o array -->
         <li>
             {assign var="link" value={url page='catalog' op='book' path=['book' => $livro.submission_id]}}
@@ -134,9 +115,6 @@
         </li>
     {/foreach}
 </ol>
-
-
-       
 
 <h2>{translate key="plugins.generic.ompstat.getTopAutoresComPublicacoes"}</h2>
 
@@ -155,13 +133,6 @@
     {/foreach}
 </ol>
 
-
-
-
-
-
-
-
 <h2>{translate key="plugins.generic.ompstat.getUnidadesComMaisPublicacoes"}</h2>
 
 <ol>
@@ -171,15 +142,6 @@
         </li>
     {/foreach}
 </ol>
-
-
-
-
-
-
-
-
-
 
      {**   <p>TESTE: {$meuTeste}</p> *}
 

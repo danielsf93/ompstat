@@ -23,7 +23,6 @@ class ompstat extends GenericPlugin {
 		return false;
 	}
 	
-
 	//variavel sem funcao para passar ao handler e recuperar no tpl
 	public $meuTeste = "varivável do arquivo principal";
 

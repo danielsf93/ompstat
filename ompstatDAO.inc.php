@@ -17,9 +17,8 @@ class ompstatDAO extends DAO {
         }
         return 0; // Retorna 0 se não houver resultados
     }
-
    
-     public function gettotalAcessos() {
+    public function gettotalAcessos() {
         $result = $this->retrieve(
             'SELECT SUM(metric) as total FROM metrics_submission WHERE assoc_type IN (256, 1048585)'
         );
@@ -38,7 +37,6 @@ class ompstatDAO extends DAO {
         }
         return 0; // Retorna 0 se não houver resultados
     }
-
 
     public function getseriesPublicadas() {
         $result = $this->retrieve(
@@ -88,9 +86,6 @@ class ompstatDAO extends DAO {
         }
         return $totalAutores; // Retorna a lista de e-mails únicos
     }
-    
-    
-    
     
     public function getDownloadsPorMes() {
         // Consulta para obter métricas com assoc_type = 515, agrupadas por data e ordenadas
@@ -147,9 +142,6 @@ class ompstatDAO extends DAO {
         return $acessosPorMes; // Retorna a lista de acessos agrupados por mês
     }
     
-
-
-
     public function getTopLivrosMaisAcessados() {
         // Primeiro passo: Soma dos valores de 'metric' para cada 'submission_id'
         $sql = '
@@ -178,8 +170,7 @@ class ompstatDAO extends DAO {
     
         return $topLivros; // Retorna a lista dos Top 3 livros
     }
-   
-    
+
     public function getLivrosComTitulos($topLivros) {
         // Obtem os 'submission_id' do Top 3
         $submissionIds = array_column($topLivros, 'submission_id');
@@ -210,9 +201,7 @@ class ompstatDAO extends DAO {
     
         return $topLivros; // Retorna a lista dos Top 3 com títulos
     }
-    
-    
-    
+
     public function getTopAutoresComPublicacoes() {
         // Consulta para obter nomes completos dos autores e contar publicações
         $sql = '
@@ -253,7 +242,6 @@ class ompstatDAO extends DAO {
         
         return $topAutores;  // Retorna a lista de autores com a contagem de publicações
     }
-    
 
     public function getUnidadesComMaisPublicacoes() {
         $sql = '
@@ -290,9 +278,4 @@ class ompstatDAO extends DAO {
         
         return $unidades; // Retorna a lista de unidades com as contagens
     }
-    
-    
-
-
-
 }
